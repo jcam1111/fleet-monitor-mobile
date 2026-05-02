@@ -1,4 +1,5 @@
-import * as SQLite from "expo-sqlite";
+// import * as SQLite from "expo-sqlite";
+import { openDatabase } from "expo-sqlite";
 
 // const db = SQLite.openDatabase("fleet_monitor.db");
 
@@ -6,7 +7,11 @@ import * as SQLite from "expo-sqlite";
 // La manera correcta de accederla es a través de SQLite.openDatabase()
 // o importando directamente { openDatabase } si fuera una exportación nombrada.
 // Para este caso, la sintaxis correcta es la siguiente.
-const db = SQLite.openDatabase("fleet_monitor.db");
+// const db = SQLite.openDatabase("fleet_monitor.db");
+
+// CORRECCIÓN DEFINITIVA: Importamos 'openDatabase' directamente como una exportación nombrada.
+// Ya no necesitamos el "namespace" 'SQLite'.
+const db = openDatabase("fleet_monitor.db");
 
 export const initDatabase = () => {
   db.transaction((tx) => {
